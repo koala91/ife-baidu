@@ -1,0 +1,154 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	width: 100%;
+}
+.top{
+	width: 100%;
+	height: 60px;
+	background-color: #120303;
+
+}
+.top span{
+	display: inline-block;
+	height: 100%;
+	padding: 12px 30px;
+}
+.top span img{
+	height: 40px;
+}
+.top ul{
+	position: absolute;
+	width: 30%;
+	height: 100%;
+	top: 0;
+	right: 0;
+}
+.top ul li{
+	float: right;
+	width: 90px;
+	line-height: 60px;
+}
+.top ul li a{
+	font-size: 12px;
+	color: white;
+	text-decoration: none;
+
+	line-height: 60px;
+}
+.content{
+	padding: 10px;
+	background: #BFBFBF;
+}
+h1{
+	font-size: 24px;
+	font-weight: 900;
+   margin-top: 20px;
+   margin-left: 15px;
+}
+h2{
+	font-size: 18px;
+	font-weight: 500;
+   margin-top: 10px;
+   margin-left: 15px;
+}
+.one,.otherone,.tupian,.lastone,.biaoge{
+	background: white;
+	margin:20px;
+	padding: 10px;
+	box-shadow: 2px 1px 2px 2px  rgba(8, 0, 2, 0.3);
+}
+
+
+.one span,.otherone span,.lastone span{
+	font-size: 12px;
+	margin: 20px;
+	line-height:20px;
+}
+.one p,.otherone p{
+	font-size: 14px;
+	font-family: "微软雅黑" arial sans-serif;
+	line-height: 26px;
+	text-indent: 2em;
+}
+.otherone,{
+	position: absolute;
+	background: white;
+	float: left;
+}
+.otherone ul{
+	list-style: none;
+	text-indent: 1em;
+}
+.tupian{
+}
+.tupian figure{
+	width: 240px;
+	border: 1px solid #DADADA;
+	padding: 5px;
+	margin: 10px 2em;
+}
+.tupian figure figcaption{
+	text-align: center;
+}
+.tupian figure img{
+	margin: 9px;
+}
+
+table{
+width: 100%;
+border-collapse: collapse;
+		}
+table caption{
+			text-align: left;
+}
+th{
+	color: white;
+	background-color: black;
+	text-align: left;
+		}
+.last{
+	color: black;
+	background-color: darkgray;
+    font-weight: bold;
+}
+.mingci{
+	margin: 10px 60px;
+}
+form{
+	margin: 15px;
+		}
+label{
+	width: 33.333%;
+	display: inline-block;
+	vertical-align: text-top;
+	text-align: right;
+	margin-right: 10px;
+}
+.readonly,fieldset {
+	border: none;
+}
+.readonly{
+	margin-left: 35%;
+}
+.submit{
+		font-size: 18px;
+		font-weight: bold;
+		color: white;
+		background-color:royalblue;
+		height: 50px;
+		width:100%;
+		border-radius: 10px ;
+}
+.footer{
+		height: 60px;
+		line-height:60px;
+		background-color: #000000;
+		color: white;
+		text-align: center;
+}
+.footer span{
+		display: inline-block;
+}

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>任务六：通过html及css模拟报纸排版</title>
+	<style type="text/css">
+	*{
+		padding: 0;
+		margin:0;
+	}
+	.clearfix:after{
+		content: '';
+		display: table;
+		clear: both;
+	}
+	.clearfix{
+		*zoom:1;
+	}
+	body{
+		width: 980px;
+		margin: 0 auto;
+
+	}
+	.content{
+		margin-left: 44px;
+		margin-right: 44px;
+	}
+	.header{
+		position: relative;
+		height: 63px;
+	}
+	.header-left{
+		position: relative;
+		display: block;
+		float: left;
+		width: 110px;
+		height: 62px;
+		background: #d45d5c;
+	}
+	.header-left a{
+		display: block;
+		position: absolute;
+		left: 5px;
+		top:46px;
+		color: white;
+		font:12px #ffffff SimHei;
+		text-decoration: none;
+	}
+	.header-right{
+		float: right;
+		position: absolute;
+		top: 46px;
+		right: 0;
+		color: #d45d5c;
+		font: 12px SimHei;
+	}
+	.header hr{
+		width: 892px;
+		height: 2px;
+		background: #938e8c;
+		border: none;
+	}
+	.main1{
+		margin-top: 34px;
+	}
+	.main1{
+		position: relative;
+	}
+	.main1 .image{
+		position: relative;
+		width: 641px;
+		height: 301px;
+	}
+	.green-box{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 191px;
+		height: 301px;
+		background: #428c59;
+		opacity: 0.5;
+	}
+	.red-box{
+	   position: absolute;
+	   top: 0;
+	   right: 0;
+	   width: 191px;
+	   height: 301px;
+	   background: #cc7680;
+	   opacity: 0.5;
+	}
+	.main1-right{
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 203px;
+	}
+	.main1-right hr{
+		background: #cc8091;
+		height: 2px;
+		border:none;
+		
+	}
+	.about{
+		color: #000;
+		font-size: 24px;
+		font-family: "Microsoft YaHei";
+		text-decoration: underline;
+
+		line-height: 1.25;
+		font-variant: small-caps;
+
+	}
+	.about-neirong{
+		color: #676767;
+		font: italic 12px;
+
+	}
+	.about-700{
+		font-size: 116px;
+		font-weight: bold;
+		color: #75b86b;
+		font-family: "Microsoft";
+		
+		font-style: oblique;
+	}
+	.about-321{
+		color: #cc8091;
+		font-size: 55px;
+		font-family: "Microsoft";
+	}
+	.about-322{
+		position: absolute;
+		top:245px;
+		color: #cc8091;
+		font-size: 21px;
+		font-family: "Microsoft";
+	}
+	.about-323{
+		color: #cc8091;
+		font-size: 12px;
+		font-family: "Microsoft"
+	}
+	.main2{
+		margin-top: 41px;
+		height: 160px;
+		
+	}
+	.what;.when;.how{
+		font-size: 16px;
+		font-family: "Microsoft";
+		font-weight: bold;
+		display: block;
+		margin-bottom: 30px;
+
+	}
+	.what{
+		color: #418c59;
+		display: block;
+		margin-bottom: 15px;
+	}
+	.when{
+		color: #d2994f;
+		display: block;
+		margin-bottom: 15px;
+	}
+	.how{
+		color: #cc7680;
+		display: block;
+		margin-bottom: 15px;
+	}
+	.main2-left{
+		float: left;
+		width: 230px;
+	}
+	.main2-middle{
+		float:left;
+		width: 180px;
+		margin-left: 30px;
+	}
+	.main2-right{
+		float: left;
+		margin-left: 30px;
+	}
+	.qianduan1{
+		font-size: 12px;
+		color: #767777;
+		font-family: "SimSun";
+	}
+	.qianduan2{
+		font-size: 12px;
+		color: #231815;
+		font-family: "Microsoft";
+		opacity: 0.7;
+	}
+	.how-top{
+		font-size: 12px;
+		color: #231815;
+		font-family: "Microsoft";
+	}
+	.how-bottom {
+		font-size: 12px;
+		color: #cd4a48;
+		font-family: "Microsoft";
+		opacity: 0.7;
+		font-style: oblique;
+	}
+	.main3{
+		
+		margin-bottom: 40px;
+		margin-top: 70px;
+		height: 640px;
+	}
+	.main3-left{
+		float: left;
+		width: 415px;
+		
+	}
+	.the{
+		font-size: 66px;
+		color: #f5e327;
+		font-family: "SimHei";
+		font-weight: bold;
+		font-style: oblique;
+	}
+	.of{
+		font-size: 32px;
+		color: #11456b;
+		font-family: "SimHei";
+		font-weight: bold;
+	}
+	.lingyu{
+		font-size: 25px;
+		color: #11456b;
+		font-weight: bold;
+		font-family: "SimHei";
+	}
+	.main3-left hr{
+		background: #11456b;
+		height: 2px;
+		border: none;
+		width: 415px;
+
+	}
+	.wenzhang:first-letter{
+		color: #f5e327;
+		font-size: 50px;
+		
+		float: left;
+	}
+	.wenzhang{
+		color: #767777;
+		font-size: 12px;
+		font-family: "SimSun";
+		
+	}
+	.wenzhang1{
+		color: #767777;
+		font-size: 12px;
+		font-family: "SimSun";
+		text-indent: 2em;
+	}
+	.img3{
+		float: right;
+		width: 167px;
+		height: 288px;
+		left: 100px;
+		top:100px;
+		margin: 20px 2px 0 20px;
+	}
+	.main3-right-top{
+		position: relative;
+		float: right;
+		width: 458px;
+		height: 257px;
+
+	}
+	.qianduanjishu{
+		position: absolute;
+		bottom: 0;
+		width: 458px;
+		height: 61px;
+		background: #767777;
+		opacity: 0.4;
+	}
+	.qianduanjishu2 p{
+		font-size: 26px;
+		color: #ffffff;
+		border-left: 3px solid #72b16a;
+		position: absolute;
+		left: 38px;
+		bottom: 8px;
+		line-height: 44px;
+		font-family: "Microsoft";
+		padding-left: 10px;
+	}
+	.qianduanjishu2 span{
+		font-size: 12px;
+		color: #72b16a;
+		font-weight: bold;
+		font-style: oblique;
+		font-family: "Microsoft";
+		margin-left: 15px;
+
+	}
+	.main3-bottom{
+		width: 458px;
+		height: 370px;
+		float: right;
+		background: #eeedd6;
+		margin-top: 20px;
+		
+		}
+	.icon{
+		position: relative;
+		top:12px;
+		margin-left: 25px;
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		border-bottom: 7px solid #10456b;
+		
+	}
+	.wenben{
+		padding-top: 30px;
+		padding-right: 10px;
+		font-size: 16px;
+		font-family: "SimSun";
+		color: #5a5b5b;
+		margin-left: 40px;
+	}
+	.wenben-right{
+		font-size: 12px;
+		font-style: oblique;
+		margin-top: 4px;
+		float: right;
+		margin-right:30px;
+	}
+	.main3-0{
+		margin-top: 50px;
+		width: 200px;
+		height: 117px;
+		background: #d45d5c;
+		padding: 49px 12px 34px 88px;
+		float: left;
+		margin-right: 20px;
+	}
+	.main3-0-0{
+		float: left;
+		border-right: 2px solid #fff;
+		color: #fff;
+		font-size: 110px;
+		font-family: "Microsoft";
+		margin-left: -80px;
+
+	}
+	.one{
+		color: #fff;
+		font-size: 21px;
+		font-family: "SimHei"
+	}
+	.hello{
+		color: #fff;
+		font-size: 12px;
+		font-family: "SimHei";
+	}
+	.main3-hello{
+		position:relative;
+		padding-top: 50px;
+		display: box;
+		box-align: center;
+
+	}
+	.yinhao1{
+		font-size: 50px;
+		color: #d45d5c;
+		display: box;
+		box-align: center;
+
+	}
+	.yinhao2{
+		font-size: 50px;
+		color: #d45d5c;
+		display: box;
+		box-align: center;
+	}
+	.last-hello{
+		font-size: 14px;
+		color: #5a5b5b;
+		font-family: "SimSun";
+		display: box;
+		box-align: center;
+	}
+	.footer{
+		margin-top: 5px;
+		height: 50px;
+	}
+	.footer hr{
+		width: 892px;
+		height: 1px;
+		color: #938e8c;
+		
+	}
+	.footer-baidu a{
+		float: right;
+		color: #d45d5c;
+		text-decoration: none;
+		font-size: 12px;
+	}
+	</style>
+</head>
+<body>
+<div class="content">
+	<div class="header">
+		<div class="header-left"><a href="http://ife.baidu.com">ife.baidu.com</a></div>
+		<div class="header-right"><span>2016.03</span></div>
+		<hr>
+	</div>
+		<div class="main1" 'clearfix'>
+			<div class="image"><img src="./img/task_1_06_1.png">
+				<div class="green-box"></div>
+				<div class="red-box"></div>
+			</div>
+			<div class="main1-right">
+			<hr>
+			<p class="about">ABOUT</p>
+			<p class="about">TECHNOLOGE</p>
+			<p class="about-neirong">About technologe about technologe about technologe</p>
+			<p class="about-700">700</p>
+			<span class="about-321">3.2</span>
+			<span class="about-322">css</span>
+			<span class="about-323">cssssccsccscssc</span>
+			</div>
+		</div>
+		<div class="main2">
+			<div class="main2-left"><a href="" class="what">What</a><p class="qianduan1">前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p></div>
+			<div class="main2-middle"><a href="" class="when">When</a><p class="qianduan2">前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p></div>
+			<div class="main2-right"><a href="" class="how">How</a>
+			<p  class="how-top">前端</p>
+			<p  class="how-top">前端前端</p>
+			<p  class="how-top">前端前端前端</p><br>
+			<p class="how-bottom">what---------40%</p>
+			<p class="how-bottom">what---------30%</p>
+			<p class="how-bottom">what---------20%</p>
+			</div>
+		</div>
+		<div class="main3 ">
+		<div class="main3-left">
+			<div class="main3-left1">
+				<span class="the">THE</span>
+				<span class="of"> &nbsp;TECHNOLOGE </span><br>
+				<span class="of">OF&nbsp; FRONT</span><br>
+				<span class="lingyu">前端技术领域</span>
+				<hr><br>
+				<p class="wenzhang">前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前</p>
+				<p class="wenzhang1">前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前</p>
+				<img src="./img/task_1_06_2.png" class="img3">
+				<p class="wenzhang1">前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前</p>
+				<p class="wenzhang1">前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前前</p>
+			</div>
+		</div>
+			<div class="main3-right-top">
+				<div class="mian3-right-img">
+					<img src="./img/task_1_06_3.png" class="img4">
+					<div class="qianduanjishu"></div>
+					<div class="qianduanjishu2"><p>前端技术<span>前端技术前端技术</span></p></div>
+				</div>
+			</div>
+			<div class="main3-bottom">
+				<div class="main3-qianduan">
+					
+					<span class="icon"></span><p><span class="wenben">前端前端前端................................................................</span><span class="wenben-right">前端</span></p>
+					<span class="icon"></span><p><span class="wenben">前端前端前端................................................................</span><span class="wenben-right">前端</span></p>
+					<span class="icon"></span><p><span class="wenben">前端前端前端................................................................</span><span class="wenben-right">前端</span></p>
+				</div>
+				<div class="main-last">
+					<div class="main3-0">
+						<p class="main3-0-0">0</p>
+						<p class="one">ONE&nbsp;&nbsp;TWO</p>
+						<p class="one">THREE&nbsp;&nbsp;FOTE&nbsp;&nbsp;FIVE</p>
+						<p class="hello">hello world hello world hello world hello worldhello world</p>
+					</div>
+					<div class="main3-hello">
+						<span class="yinhao1">“</span>
+						<span class="last-hello">hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello </span>
+						<span class="yinhao2">”</span>
+					</div>
+				</div>
+				
+			</div>
+			
+		</div>
+		<div class="footer">
+			<hr>
+			<div class="footer-baidu"><a href="http://ife.baidu.com" target="_blank">ife.baidu.com</a></div>
+		</div>
+		
+</div>
+</body>
+</html>

@@ -69,7 +69,7 @@
     //左删除事件
     leftL.addEventListener("click",function (){
         var sp=result.firstChild;
-        var number = result.innerHTML;
+        var number = sp.innerHTML;
         sp.remove();
         alert(number);
     });
@@ -78,7 +78,7 @@
 
     rightL.addEventListener("click",function () {
         var sp=result.lastChild;
-        var number =result.innerHTML;
+        var number =sp.innerHTML;
         sp.remove();
         alert(number);
     });

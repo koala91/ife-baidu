@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #result li{
+            display: inline-block;
+            background-color: red;
+            color: white;
+            padding: 5px 5px;
+            margin: 3px;
+            vertical-align: bottom;
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="put">
+<button id="leftEnter">左侧入</button>
+<button id="rightEnter">右侧入</button>
+<button id="leftLeaver">左侧出</button>
+<button id="rightLeaver">右侧出</button>
+<button id="random">随机生成一组数据</button>
+<button id="sort">排序</button>
+<ul id="result"></ul>
+<script>
+    var input = document.getElementById('put');
+    var leftE = document.getElementById('leftEnter');
+    var rightE = document.getElementById('rightEnter');
+    var leftL = document.getElementById('leftLeaver');
+    var rightL = document.getElementById('rightLeaver');
+    var result = document.getElementById('result');
+    var random = document.getElementById('random');
+    var sort = document.getElementById('sort');
+    var oLi = document.getElementsByTagName('li');
+
+    var arr=[];
+    //左侧入
+    leftE.onclick=function () {
+        var num = input.value;
+        if (oLi.length>60){
+            alert("个数超过60个");
+        }else if (!(/^[0-9]+$/).test(num) || num < 10 || num > 100){
+            alert("请输入10-100的数字");
+        }else {
+            var li = document.createElement('li');
+            arr.unshift(num);
+            li.innerHTML = num;
+            li.style.height = num * 5 + "px";
+            result.insertBefore(li, result.firstChild);
+        };
+        return arr;
+    };
+
+    // 右侧入
+    rightE.onclick=function () {
+        var num = input.value;
+        if (oLi.length>60){
+            alert("个数超过60");
+        }else if (!(/^[0-9]+$/).test(num) || num < 10 || num > 100){
+            alert("请输入10-100的数字");
+        }else {
+            var li = document.createElement('li');
+            arr.push(num);
+            li.innerHTML = num ;
+            li.style.height = num*5 +"px";
+//            result.insertBefore(li,result.lastChild);  这个插到最后一个前面了
+            result.appendChild(li);
+        };
+        return arr;
+    }
+    // 左侧出
+    leftL.onclick=function () {
+        var fi =result.firstChild;
+        fi.remove();
+    };
+
+
+    //右侧出
+    rightL.onclick=function () {
+        var la = result.lastChild;
+        la.remove();
+    }
+
+    //随机数组
+
+    random.onclick=function () {
+        randomData();
+    }
+    //随机数组函数
+    function randomData() {
+       for (var i=0; i<10;i++){
+           arr.push(parseInt(Math.random()*90)+10);
+       };
+       rand(arr);
+    }
+    //渲染图标
+    function rand(data) {
+        var str="";
+        for (var i=0;i<data.length;i++){
+//            str+="<li style='height:"+data[i]*5+"px '>+data[i]+</li>";上下对比好好看
+            str+='<li style="height:'+data[i]*3+'px;">'+data[i]+'</li>';
+
+            result.innerHTML=str;
+        };
+    };
+
+    //排序的函数
+    sort.onclick=function () {
+        sortData();
+
+    }
+
+    //排序可视化的意思:每循环一次就交换一次li的高度与值。
+    function sortData() {
+        var len = arr.length;
+        var i=0;
+        var j=0;
+        var temp;
+        var clear = null ;
+        var clear = setInterval(run,15);
+
+        function run() {
+            if(i<len){
+                if(j<len-i-1){
+                    if(arr[j]>arr[j+1]){
+                        temp=arr[j];
+                        arr[j]=arr[j+1];
+                        arr[j+1]=temp;
+                        oLi[j].innerHTML=arr[j];
+                        oLi[j+1].innerHTML=arr[j+1];
+                        oLi[j].style.height=arr[j]*5+"px";
+                        oLi[j+1].style.height=arr[j+1]*5+"px";
+                    }
+                    j++;
+                    return;
+                }else{
+                    j=0;
+                }
+                i++;
+            }else {
+                clearInterval(clear);
+            }
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #result span{
+            display: inline-block;
+            background-color: red;
+            color: white;
+            padding: 5px 5px;
+            margin: 3px;
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="put">
+<button id="leftEnter">左侧入</button>
+<button id="rightEnter">右侧入</button>
+<button id="leftLeaver">左侧出</button>
+<button id="rightLeaver">右侧出</button>
+<div id="result"></div>
+<script>
+    var input = document.getElementById('put');
+    var leftE = document.getElementById('leftEnter');
+    var rightE = document.getElementById('rightEnter');
+    var leftL = document.getElementById('leftLeaver');
+    var rightL = document.getElementById('rightLeaver');
+    var result = document.getElementById('result');
+    //  左按钮事件
+    leftE.addEventListener("click",function (){
+        var number = input.value;
+        if(number.trim().length == 0 ) {
+            alert("输入不能为空");
+            return false;
+        }
+        if(isNaN(number)){
+            alert("请输入一个数字");
+            return false;
+        }
+        var sp =document.createElement('span');
+        sp.setAttribute("onclick","deletesp(this)");
+        var inner = document.createTextNode(number);
+        sp.appendChild(inner);
+        var first = result.firstChild;
+        result.insertBefore(sp,first); //将元素添加到最前面。
+    }
+    );
+    // 右按钮事件
+
+     rightE.addEventListener("click",function () {
+         var number = input.value;
+         if (number.trim().length == 0){
+             alert(" 输入不能为空");
+             return false;
+         }
+         if(isNaN(number)){
+             alert("请输入一个数字");
+             return false;
+         }
+         var sp = document.createElement('span');
+         sp.setAttribute("onclick","deletesp(this)");
+         var inner = document.createTextNode(number);
+         sp.appendChild(inner);
+         result.appendChild(sp);
+     });
+
+
+    //左删除事件
+    leftL.addEventListener("click",function (){
+        var sp=result.firstChild;
+        var number = result.innerHTML;
+        sp.remove();
+        alert(number);
+    });
+
+    //右删除事件
+
+    rightL.addEventListener("click",function () {
+        var sp=result.lastChild;
+        var number =result.innerHTML;
+        sp.remove();
+        alert(number);
+    });
+
+
+    // 点击数字删除
+    function deletesp(span) {
+        span.remove();
+    }
+
+</script>
+</body>
+</html>

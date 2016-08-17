@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#wrapper{
+			width: 650px;
+			height: 180px;
+			margin: 20px auto;
+			border: 1px solid #ccc;
+			padding: 20px;
+		}
+		.layer_1,.layer_2,.layer_3{
+			border: 1px solid black;
+			margin: 5px;
+			padding: 5px;
+			float: left;
+		}
+		.layer_1{
+			width: 300px;
+			height: 150px;
+			/*border: 1px solid black;
+			margin: 5px;
+			padding: 5px;
+			float: left;*/
+
+		}
+		.layer_2{
+			width: 125px;
+			height: 120px;
+			/*border: 1px solid black;
+			margin: 5px;
+			padding: 5px;
+			float: left;*/
+		}
+		.layer_3{
+			width: 40px;
+			height: 100px;
+			/*border: 1px solid black;
+			margin: 5px;
+			padding: 5px;
+			float: left;*/
+		}
+		.button{
+			width: 650px;
+			margin: 10px auto;
+
+		}
+		#btn1,#btn2,#btn3{
+			width: 150px;
+			height: 50px;
+			font-size: 18px;
+			background: #B7EEEE;
+			color: #EE1738;
+			margin: 20px;
+			padding: 10px;
+			border: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrapper">
+		<div class="layer_1">
+			<div class="layer_2">
+				<div class="layer_3"></div>
+				<div class="layer_3"></div>
+			</div>
+			<div class="layer_2">
+				<div class="layer_3"></div>
+				<div class="layer_3"></div>
+			</div>
+		</div>
+		<div class="layer_1">
+			<div class="layer_2">
+				<div class="layer_3"></div>
+				<div class="layer_3"></div>
+			</div>
+			<div class="layer_2">
+				<div class="layer_3"></div>
+				<div class="layer_3"></div>
+			</div>
+		</div>
+	</div>
+
+
+	<section class="button">
+		<button id="btn1">前序遍历</button>
+		<button id="btn2">中序遍历</button>
+		<button id="btn3">后续遍历</button>
+	</section>
+
+	<script type="text/javascript">
+		var result=[];
+		var timer=null;//定时器.
+        //使用递归的方式前序遍历DOM
+        function head(node) {
+            result.push(node);
+            if(node.firstElementChild !==null){
+                head(node.firstElementChild);
+            }
+            if(node.lastElementChild !==null){
+                head(node.lastElementChild);
+            }
+        };
+        
+        //使用递归的方式遍历中序dom
+        function between(node) {
+            if(node.firstElementChild !==null){
+                between(node.firstElementChild);
+            }
+            result.push(node);
+            if(node.lastElementChild !==null){
+                between(node.lastElementChild);
+            }
+
+        }
+
+        //使用递归的方式遍历后续dom
+        function last(node) {
+            if(node.firstElementChild !== null){
+                last(node.firstElementChild);
+
+            }
+            if(node.lastElementChild !==null){
+                last(node.lastElementChild);
+            }
+            result.push(node);
+        }
+
+        //开启动画,间隔1s
+        function start() {
+            var i =0;
+            result[i].style.backgroundColor="red";
+            timer=setInterval(function () {
+                i++;
+                if(i<result.length){
+                    result[i-1].style.backgroundColor="#fff";
+                    result[i].style.backgroundColor="red";
+                }else {
+                    clearInterval(timer);
+                    result[result.length-1].style.backgroundColor="#fff";
+                }
+            },1000);
+        }
+
+        // 初始化函数
+        function reset() {
+            var oDiv=document.getElementsByTagName("div");
+            for (var i=0;i<oDiv.length;i++){
+                oDiv[i].style.backgroundColor="#fff";
+            }
+        };
+
+
+
+        var point=document.getElementById("wrapper");
+
+
+
+        //前序遍历按钮绑定事件
+        document.getElementById("btn1").onclick=function () {
+            reset();
+            clearInterval(timer);
+            result=[];
+            head(point);
+            start();
+        };
+
+        //中序遍历按钮绑定事件
+        document.getElementById("btn2").onclick=function () {
+            reset();
+            clearInterval(timer);
+            result=[];
+            between(point);
+            start();
+
+        };
+
+        //后序遍历按钮绑定事件
+        document.getElementById("btn3").onclick=function () {
+            reset();
+            clearInterval(timer);
+            result=[];
+            last(point);
+            start();
+        };
+	</script>
+</body>
+</html>
